@@ -3,17 +3,20 @@
     --menu-bar-height: 10px;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
 #menu {
-    background-color: #D84282;
+    background-color: dodgerblue;
     position: relative;
     width: var(--menu-bar-width);
     height: var(--menu-bar-height);
-    margin: 100px;
 }
 
 #menu::before,
 #menu::after {
-    background-color: #D84282;
+    background-color: dodgerblue;
     display: block;
     content: "";
     width: var(--menu-bar-width);
@@ -29,4 +32,35 @@
 #menu::after {
     left: 0;
     top: 20px;
+}
+
+.menu-container {
+    display: flex;
+    align-items: center;
+    /*border: dashed 3px rgba(0, 0, 0, 0.1);*/
+    width: 60px;
+    height: 50px;
+    margin: 30px 30px;
+}
+
+/*----------------------->hamburger hover<--------------------*/
+
+
+.menu-container:hover #menu::after {
+    transform: translateY(-20px) rotate(-45deg) ;
+}
+
+.menu-container:hover #menu::before {
+    transform: translateY(20px) rotate(45deg) ;
+}
+
+.menu-container:hover #menu {
+    background-color: transparent;
+}
+
+/*----------------------->hamburger delay after hover<--------------------*/
+#menu,
+#menu::before,
+#menu::after {
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
